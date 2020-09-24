@@ -34,6 +34,11 @@
     right: 0;
 }
 
-.name-div {
+.title {
+   width: 40%;
+   margin-bottom: 3em !important;
+}
+
+form {
     position: relative;
 }

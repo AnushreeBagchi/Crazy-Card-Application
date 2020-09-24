@@ -2,11 +2,6 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
-import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import "../app/index.css";
 import Dropdown from "./Dropdown";
 
@@ -16,7 +11,7 @@ class Card extends React.Component {
     this.state = {
       name: "",
       income: "",
-      dob: "",
+      dob: "2017-05-24",
       empStatus: "",
       title: "",
       address: "",
@@ -24,44 +19,42 @@ class Card extends React.Component {
       postal: "",
       titleArray: ["Mr", "Mrs", "Ms"],
       empStatusArray: ["Full Time", "Part Time", "Student"],
+      textFields: [
+        { name: "name", label: "Name", type: "text" },
+        { name: "dob", label: "Birthday", type: "date" },
+        { name: "address", label: "Address", type: "text" },
+        { name: "city", label: "City", type: "text" },
+        { name: "postal", label: "Postal", type: "text" },
+        { name: "income", label: "Annual Income", type: "text" },
+      ],
     };
   }
 
   render() {
-    const handleChange = (e, field) =>{
-        console.log(e);
-        this.setState({ [field]: e.target.value });
-    }
-
-    function onchange (e) {
-        debugger;
-    }
+    const handleChange = (e, field) => this.setState({ [field]: e.target.value });
 
     return (
       <Paper className="paper">
-        <form className="container" noValidate onChange={(e)=> onchange(e)}>
-          <div className="center name-div">
-            <Dropdown
-              classDiv="title"
-              title="Title"
-              menus={this.state.titleArray}
-              value={this.state.title}
-              handleChange={(e) => handleChange(e, "title")}
-            />
-            <TextField className="name" label="Name" onChange={(e)=> handleChange(e, 'dob')}/>
-          </div>
-          <TextField
-            label="Birthday"
-            type="date"
-            defaultValue="2017-05-24"
-            className="center"
-            onChange={(e)=> handleChange(e, 'dob')}
+        <form className="container" >
+          <Dropdown
+            classDiv="title"
+            title="Title"
+            menus={this.state.titleArray}
+            value={this.state.title}
+            handleChange={(e) => handleChange(e, "title")}
           />
-          <TextField className="center" label="Address" onChange={(e)=> handleChange(e, 'address')}/>
-          <TextField className="center" label="City" onChange={(e)=> handleChange(e, 'city')}/>
-          <TextField className="center" label="Postal Code" onChange={(e)=> handleChange(e, 'postal')}/>
-          <TextField className="center" label="Annual Income" onChange={(e)=> handleChange(e, 'income')}/>
-          
+
+          {this.state.textFields.map((field) => (
+            <TextField
+              required
+              label={field.label}
+              key={field.name}
+              type={field.name === "dob" ? "date" : "text"}
+              className="center"
+              defaultValue={field.name === "dob" ? "2017-05-24" : null}
+              onChange={(e) => handleChange(e, field.name)}
+            ></TextField>
+          ))}
 
           <Dropdown
             classDiv="center"
@@ -71,7 +64,7 @@ class Card extends React.Component {
             handleChange={(e) => handleChange(e, "empStatus")}
           />
 
-       <Button className="btn center" variant="contained" color="primary">
+          <Button className="btn center" variant="contained" color="primary">
             Review Credit Cards
           </Button>
         </form>

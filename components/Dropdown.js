@@ -10,7 +10,7 @@ function Dropdown(props) {
   const { value, title, menus, classDiv } = props;
   return (
     <>
-      <FormControl className={classDiv}>
+      <FormControl required className={classDiv}>
         <InputLabel>{title}</InputLabel>
         <Select
           value={value}
@@ -24,7 +24,7 @@ function Dropdown(props) {
             </MenuItem>
           ))}
         </Select>
-        <FormHelperText>Required</FormHelperText>
+        {/* <FormHelperText>Required</FormHelperText> */}
       </FormControl>
     </>
   );
