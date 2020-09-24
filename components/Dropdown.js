@@ -24,7 +24,6 @@ function Dropdown(props) {
             </MenuItem>
           ))}
         </Select>
-        {/* <FormHelperText>Required</FormHelperText> */}
       </FormControl>
     </>
   );

@@ -42,3 +42,38 @@
 form {
     position: relative;
 }
+
+.card {
+    width: 60%;
+    margin: 4em auto;
+    padding: 3em 2em 2em 2em;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+}
+
+.media {
+    width: 100%;
+    height: 14em;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.14902);
+}
+
+.card-content {
+    display: flex;
+    position: relative;
+}
+
+.flex {
+    display: flex;
+}
+
+.content {
+    margin: 2em;
+    width: 10em;
+    height: 3em;
+}
+
+.detail-value {
+    position: absolute;
+    bottom: 0;
+}

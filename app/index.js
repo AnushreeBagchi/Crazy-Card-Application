@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Card from "../components/Card.jsx"
-
+import Customer from "../components/Customer.jsx"
+import Cards from "../components/Cards.jsx";
 
 
 class App extends React.Component {
@@ -10,7 +10,8 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Card/>
+        {/* <Customer/> */}
+        <Cards/>
       </>
     );
   }
