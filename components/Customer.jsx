@@ -30,9 +30,17 @@ class Card extends React.Component {
     };
   }
 
+
+
   render() {
     const handleChange = (e, field) => this.setState({ [field]: e.target.value });
-
+    const goToResult = () => {
+      this.props.history.push({
+        pathname: "/cards/",
+        state: {
+        },
+      });
+    };
     return (
       <Paper className="paper">
         <form className="container" >
@@ -64,7 +72,7 @@ class Card extends React.Component {
             handleChange={(e) => handleChange(e, "empStatus")}
           />
 
-          <Button className="btn center" variant="contained" color="primary">
+          <Button className="btn center" variant="contained" color="primary" onClick={goToResult}>
             Review Credit Cards
           </Button>
         </form>
