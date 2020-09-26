@@ -43,13 +43,6 @@ form {
     position: relative;
 }
 
-.card {
-    width: 60%;
-    margin: 4em auto;
-    padding: 3em 2em 2em 2em;
-    background: #fafafa;
-    border: 1px solid #ebebeb;
-}
 
 .media {
     width: 100%;
@@ -76,4 +69,32 @@ form {
 .detail-value {
     position: absolute;
     bottom: 0;
+}
+
+.card-div {
+   width: 60%;
+
+}
+
+.page {
+    display: flex;
+}
+
+.card {
+    width: 100%;
+    margin: 1em auto;
+    padding: 3em 2em 2em 2em;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+}
+
+
+.selected-div {
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    width: 30%;
+    position: fixed;
+    right: 0;
+    height: 60%;
+    margin: 1em;
 }

@@ -1,13 +1,9 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
+import customerReducer from "./customer";
+import cardReducer from "./card";
 
-const reducer = createReducer(
-  {},
-  {
-    addCustomer: (customer, action) => {
-      const key = Object.keys(action.payload);
-      customer[key] = action.payload[key];
-    },
-  }
-);
 
-export default reducer;
+export default combineReducers({
+    customer : customerReducer,
+    card : cardReducer
+});

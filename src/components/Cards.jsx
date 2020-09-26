@@ -1,12 +1,8 @@
 import React from "react";
 import "../../app/index.css";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import { connect } from "react-redux";
+import CrazyCard from "./CrazyCard.jsx";
+import { onCardSelected } from "../store/actions/card";
 
 class Cards extends React.Component {
   constructor(props) {
@@ -14,15 +10,16 @@ class Cards extends React.Component {
     this.state = {
       cards: [
         {
+          id: 1,
           name: "Student Life Card",
           image: "../src/images/cards/studentLife.png",
           apr: "18.9%",
           balanceOfferDuration: "0 months",
           purchaseOfferDuration: "6 months",
           credit: "£1200",
-          
         },
         {
+          id: 2,
           name: "Anywhere Card",
           image: "../src/images/cards/anywhere.png",
           apr: "33.9%",
@@ -31,14 +28,15 @@ class Cards extends React.Component {
           credit: "£300",
         },
         {
+          id: 3,
           name: "Liquid Card",
           image: "../src/images/cards/liquid.png",
           apr: "33.9%",
           balanceOfferDuration: "12 months",
           purchaseOfferDuration: "6 months",
           credit: "£3000",
-          minIncome : 16000
-        }
+          minIncome: 16000,
+        },
       ],
       cardDetails: [
         {
@@ -60,41 +58,59 @@ class Cards extends React.Component {
       ],
     };
   }
+
+  getAvailableCards(customer) {
+    console.log(customer);
+    let available = ["Anywhere Card"];
+    if (customer.income >= 16000) {
+      available.push("Liquid Card");
+    }
+    if (customer.empStatus === "Student") {
+      available.push("Student Life Card");
+    }
+    return this.state.cards.filter((card) => available.includes(card.name));
+  }
+
+  goToHome() {
+    this.props.history.push({
+      pathname: "/"
+    });
+  }
+
+  onSelect(card) {
+    onCardSelected(card);
+  }
+
   render() {
+    debugger;
+    let customer = this.props.location.state
+      ? this.props.location.state.customer
+      : this.goToHome();
+    let availableCards = customer ? this.getAvailableCards(customer) : null;
     return (
-      <>
-        {this.state.cards.map((card) => (
-          <Card key={card.name} className="card">
-            <Typography gutterBottom variant="h5" component="h2">
-              {card.name}
-            </Typography>
-            <div className="flex media-div">
-            <CardMedia className="media" image={card.image} />
-            <CardActionArea>
-              <CardContent className="card-content">
-                {this.state.cardDetails.map((detail) => (
-                  <div key={detail.name} className="content">
-                    <Typography variant="body2" color="textSecondary" component="p" >
-                      {detail.text}
-                    </Typography>
-                    <Typography className="detail-value" variant="h6" color="textSecondary" component="p" >
-                      {card[detail.name]}
-                    </Typography>
-                  </div>
-                ))}
-              </CardContent>
-            </CardActionArea>
-            </div>
-            <CardActions>
-              <Button size="small" color="primary">
-                Learn More
-              </Button>
-            </CardActions>
-          </Card>
-        ))}
-      </>
+      <div className="page">
+        <div className="card-div">
+          {availableCards &&
+            availableCards.map((card) => (
+              <CrazyCard
+                key={card.name}
+                card={card}
+                cardDetails={this.state.cardDetails}
+                onSelect= {this.onSelect}
+              />
+            ))}
+        </div>
+        <div className="selected-div"></div>
+      </div>
     );
   }
 }
 
-export default Cards;
+const mapStateToProps = (state) => ({ cards: state });
+const mapDispatchToProps = (dispatch) => ({
+  onCardSelected : (card) => {
+    dispatch(onCardSelected(card));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cards);

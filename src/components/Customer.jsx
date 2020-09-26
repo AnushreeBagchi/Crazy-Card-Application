@@ -4,35 +4,10 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import "../../app/index.css";
 import Dropdown from "./Dropdown";
-import { addCustomer } from "../store/actions/actions";
+import { addCustomer } from "../store/actions/customer";
 import { connect } from "react-redux";
 
 class Customer extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   customer: {
-    //     name: "",
-    //     income: "",
-    //     dob: "2017-05-24",
-    //     empStatus: "",
-    //     title: "",
-    //     address: "",
-    //     city: "",
-    //     postal: "",
-    //   },
-    //   titleArray: ["Mr", "Mrs", "Ms"],
-    //   empStatusArray: ["Full Time", "Part Time", "Student"],
-    //   textFields: [
-    //     { name: "name", label: "Name", type: "text" },
-    //     { name: "dob", label: "Birthday", type: "date" },
-    //     { name: "address", label: "Address", type: "text" },
-    //     { name: "city", label: "City", type: "text" },
-    //     { name: "postal", label: "Postal", type: "text" },
-    //     { name: "income", label: "Annual Income", type: "text" },
-    //   ],
-    // };
-  }
 
   render() {
     const details = {
@@ -50,12 +25,9 @@ class Customer extends React.Component {
     const handleChange = (e, field) =>
       this.props.addCustomer({ [field]: e.target.value });
     const goToResult = () => {
-      // this.props.addCustomer(this.customer);
       this.props.history.push({
         pathname: "/cards/",
-        state: {
-          customer: this.props.customer,
-        },
+        state : this.props.state
       });
     };
     return (
@@ -65,7 +37,7 @@ class Customer extends React.Component {
             classDiv="title"
             title="Title"
             menus={details.titleArray}
-            value={this.props.customer.title}
+            value={this.props.state.customer.title}
             handleChange={(e) => handleChange(e, "title")}
           />
 
@@ -85,7 +57,7 @@ class Customer extends React.Component {
             classDiv="center"
             title="Employment Status"
             menus={details.empStatusArray}
-            value={this.props.customer.empStatus}
+            value={this.props.state.customer.empStatus}
             handleChange={(e) => handleChange(e, "empStatus")}
           />
           <Button
@@ -103,7 +75,7 @@ class Customer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  customer: state,
+  state : state,
 });
 const mapDispatchToProps = (dispatch) => ({
   addCustomer: (data) => {
