@@ -2,7 +2,9 @@ import React from "react";
 import "../../app/index.css";
 import { connect } from "react-redux";
 import CrazyCard from "./CrazyCard.jsx";
-import { onCardSelected } from "../store/actions/card";
+import { onCardSelected, resetSelectedCards, onCardRemoved } from "../store/actions/card";
+import  Button  from '@material-ui/core/Button';
+import SelectGrid from "./SelectGrid";
 
 class Cards extends React.Component {
   constructor(props) {
@@ -60,7 +62,6 @@ class Cards extends React.Component {
   }
 
   getAvailableCards(customer) {
-    console.log(customer);
     let available = ["Anywhere Card"];
     if (customer.income >= 16000) {
       available.push("Liquid Card");
@@ -72,17 +73,25 @@ class Cards extends React.Component {
   }
 
   goToHome() {
+    this.props.resetSelectedCards();
     this.props.history.push({
       pathname: "/"
     });
   }
-
-  onSelect(card) {
-    onCardSelected(card);
+  handleSelect(card){
+    let index = this.props.state.card.indexOf(card);
+    if (index === -1){
+      this.props.onCardSelected(card);
+    }
+  }
+  handleRemove(card){
+    let index = this.props.state.card.indexOf(card);
+    if (index !== -1){
+      this.props.onCardRemoved(card);
+    }
   }
 
   render() {
-    debugger;
     let customer = this.props.location.state
       ? this.props.location.state.customer
       : this.goToHome();
@@ -96,20 +105,31 @@ class Cards extends React.Component {
                 key={card.name}
                 card={card}
                 cardDetails={this.state.cardDetails}
-                onSelect= {this.onSelect}
+                onSelect= {(card) => this.handleSelect(card)}
+                onRemove= {card => this.handleRemove(card)}
               />
             ))}
         </div>
-        <div className="selected-div"></div>
+          <SelectGrid selectedCards = {this.props.state.card}/>
+          <Button size="medium" color="primary" className="home-btn flex-end" onClick={()=>this.goToHome()}>
+              Navigate to Home
+          </Button>
+       
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({ cards: state });
+const mapStateToProps = (state) => ({ state: state });
 const mapDispatchToProps = (dispatch) => ({
   onCardSelected : (card) => {
     dispatch(onCardSelected(card));
+  },
+  onCardRemoved : card => {
+    dispatch(onCardRemoved(card));
+  },
+  resetSelectedCards : (card) => {
+    dispatch(resetSelectedCards(card));
   }
 });
 

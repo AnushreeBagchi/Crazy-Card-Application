@@ -26,6 +26,8 @@
     justify-content: center;
     margin-bottom: 3em !important;
     width: 100%;
+    text-align: center;
+
 }
 
 .name {
@@ -58,6 +60,9 @@ form {
 
 .flex {
     display: flex;
+    position: relative;
+    margin: 1em;
+    padding: 1em;
 }
 
 .content {
@@ -76,7 +81,7 @@ form {
 
 }
 
-.page {
+.page  {
     display: flex;
 }
 
@@ -95,6 +100,43 @@ form {
     width: 30%;
     position: fixed;
     right: 0;
-    height: 60%;
+    /* height: 60%; */
     margin: 1em;
+}
+
+.selected-card {
+    display: flex;
+}
+
+.flex-end{
+    position: absolute;
+    right: 0;
+    padding-right: 1em;
+}
+.row {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.home-btn {
+    position: fixed !important;
+    right: 0;
+    bottom: 0;
+    margin: 2em !important;
+}
+
+.header {
+    justify-content: center;
+    margin: 1em 0 !important;
+    width: 100%;
+    text-align: center;
+}
+
+.total {
+   bottom: 0 !important
+}
+
+.select-card-div {
+    height: 15em;
 }

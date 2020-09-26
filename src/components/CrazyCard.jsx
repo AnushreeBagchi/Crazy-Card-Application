@@ -15,6 +15,9 @@ const CrazyCards = (props) => {
   const selectCard = () => {
     props.onSelect(props.card);
   }
+  const removeCard = () => {
+    props.onRemove(props.card);
+  }
   return (
     <>
         <Card key={card.name} className="card">
@@ -42,6 +45,9 @@ const CrazyCards = (props) => {
             <CardActions>
               <Button size="medium" color="primary" onClick={selectCard}>
                 ADD Card
+              </Button>
+              <Button size="medium" color="primary" onClick={removeCard}>
+                Remove Card
               </Button>
             </CardActions>
           </Card>
