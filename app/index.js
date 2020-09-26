@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Routers from '../components/Routers';
-import { Provider } from 'react-redux';
+import Routers from "../src/Routers/Routers";
+import configureStore from "../src/store/configureStore";
+import { Provider } from "react-redux";
+
+const store = configureStore();
 
 class App extends React.Component {
-
   render() {
     return (
-      <>
-        <Routers/>
-      </>
+      <Provider store={store}>
+        <Routers />
+      </Provider>
     );
   }
 }

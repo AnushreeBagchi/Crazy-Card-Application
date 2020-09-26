@@ -4,9 +4,9 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Cards from "./Cards.jsx";
-import NotFound from "./NotFound";
-import Customer from "./Customer.jsx";
+import Cards from "../components/Cards.jsx";
+import Customer from "../components/Customer.jsx";
+import NotFound from '../components/NotFound.js';
 
 
 export default function Routers() {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../app/index.css";
+import "../../app/index.css";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -15,7 +15,7 @@ class Cards extends React.Component {
       cards: [
         {
           name: "Student Life Card",
-          image: "/images/cards/studentLife.png",
+          image: "../src/images/cards/studentLife.png",
           apr: "18.9%",
           balanceOfferDuration: "0 months",
           purchaseOfferDuration: "6 months",
@@ -24,7 +24,7 @@ class Cards extends React.Component {
         },
         {
           name: "Anywhere Card",
-          image: "/images/cards/anywhere.png",
+          image: "../src/images/cards/anywhere.png",
           apr: "33.9%",
           balanceOfferDuration: "0 months",
           purchaseOfferDuration: "0 months",
@@ -32,7 +32,7 @@ class Cards extends React.Component {
         },
         {
           name: "Liquid Card",
-          image: "/images/cards/liquid.png",
+          image: "../src/images/cards/liquid.png",
           apr: "33.9%",
           balanceOfferDuration: "12 months",
           purchaseOfferDuration: "6 months",
