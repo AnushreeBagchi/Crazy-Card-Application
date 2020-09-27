@@ -4,19 +4,22 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import "../../app/index.css";
 import Dropdown from "./Dropdown";
-import { addCustomer } from "../store/actions/customer";
+import {
+  addCustomer,
+  getValidations,
+  validateField,
+  hasComponentError
+} from "../store/actions/customer";
 import { connect } from "react-redux";
 import Nav from "./Nav";
 import { ThemeConsumer } from "../contexts/theme";
 
 class Customer extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = {
-      errors : {
-        "income" : "Required",
-      }
-    }
+  }
+  componentDidMount() {
+    this.props.getValidations();
   }
   render() {
     const details = {
@@ -32,55 +35,30 @@ class Customer extends React.Component {
       ],
     };
 
-
     const handleChange = (e, field) => {
-      validate(field, e.target.value);
+      this.props.validateField({ field, value: e.target.value });
       this.props.addCustomer({ [field]: e.target.value });
-    }
-
-    const validate = (field, value) => {
-      let errors = {...this.state.errors};
-      switch (field){
-        case 'income':
-          errors.income = isNaN(Number(value)) ? "Must be a number" : "";
-          break;
-        case 'name': 
-        case 'address': 
-          errors[field] = value.length < 5 ? "Length must be 5 characters long! " : "";
-          break;
-        case 'city': 
-        case 'postal':
-          errors[field] = value.length < 3 ? "City must be atlest 3 characters long! " : "";
-          break;
-        default:
-          break;
-      }
-      this.setState({errors});
-    }
+    };
 
     const hasFieldError = (field) => {
-      let error = this.state.errors[field];
+      let errors = this.props.state.customer.errors;
+      let error = errors ? errors[field] : "";
       if (error) {
         return true;
       }
-    }
+    };
 
-    const hasComponentError = () => {
-      let returnValue = false;
-      let errors = this.state.errors;
-      Object.keys(errors).forEach(e => {
-        if (errors[e]) {
-          returnValue =  true;
-        }
-      })
-      return returnValue;
-    }
 
     const goToResult = () => {
       this.props.history.push({
         pathname: "/cards/",
         state: this.props.state,
       });
+    };
+
+    const getHelperText = (name) => {
+      let errors = this.props.state.customer.errors;
+      return errors ? errors[name] : "";
     };
 
     return (
@@ -100,9 +78,9 @@ class Customer extends React.Component {
 
                 {details.textFields.map((field) => (
                   <TextField
-                    error = {hasFieldError(field.name)}
-                    helperText={this.state.errors[field.name]}
-                    required = {field.name === "income"}
+                    error={hasFieldError(field.name)}
+                    helperText={getHelperText(field.name)}
+                    required={field.name === "income"}
                     label={field.label}
                     key={field.name}
                     type={field.name === "dob" ? "date" : "text"}
@@ -113,7 +91,7 @@ class Customer extends React.Component {
                 ))}
 
                 <Dropdown
-                  required = {true}
+                  required={true}
                   classDiv="center"
                   title="Employment Status"
                   menus={details.empStatusArray}
@@ -125,7 +103,7 @@ class Customer extends React.Component {
                   variant="contained"
                   color="primary"
                   onClick={goToResult}
-                  disabled = {hasComponentError()}
+                  disabled={hasComponentError(this.props.state)}
                 >
                   Review Credit Cards
                 </Button>
@@ -145,6 +123,12 @@ const mapDispatchToProps = (dispatch) => ({
   addCustomer: (data) => {
     dispatch(addCustomer(data));
   },
+  getValidations: () => {
+    dispatch(getValidations());
+  },
+  validateField: (data) => {
+    dispatch(validateField(data));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Customer);
