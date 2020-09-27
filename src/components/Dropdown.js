@@ -7,12 +7,12 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 
 function Dropdown(props) {
   const handleChange = (e) => props.handleChange(e);
-  const { value, title, menus, classDiv } = props;
+  const { value, title, menus, classDiv, required } = props;
   let optionItems = menus.map((menu) => <option key={menu}>{menu}</option>);
 
   return (
     <>
-      <FormControl required className={classDiv}>
+      <FormControl required={required} className={classDiv}>
         <InputLabel>{title}</InputLabel>
         <NativeSelect
           value={value}
