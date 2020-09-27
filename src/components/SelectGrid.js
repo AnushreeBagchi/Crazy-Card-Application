@@ -11,7 +11,6 @@ import "../../app/index.css";
 function SelectGrid(props) {
   const getTotalCredit = () => {
     return props.selectedCards.reduce((total, card) => {
-      console.log(card.credit.trim("£"));
       return (total += Number(card.credit.slice(1)));
     }, 0);
   };

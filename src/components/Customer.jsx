@@ -6,6 +6,8 @@ import "../../app/index.css";
 import Dropdown from "./Dropdown";
 import { addCustomer } from "../store/actions/customer";
 import { connect } from "react-redux";
+import Nav from "./Nav";
+import { ThemeConsumer } from "../contexts/theme";
 
 class Customer extends React.Component {
 
@@ -31,45 +33,52 @@ class Customer extends React.Component {
       });
     };
     return (
-      <Paper className="paper">
-        <form className="container">
-          <Dropdown
-            classDiv="title"
-            title="Title"
-            menus={details.titleArray}
-            value={this.props.state.customer.title}
-            handleChange={(e) => handleChange(e, "title")}
-          />
-
-          {details.textFields.map((field) => (
-            <TextField
-              required
-              label={field.label}
-              key={field.name}
-              type={field.name === "dob" ? "date" : "text"}
-              className="center"
-              defaultValue={field.name === "dob" ? "2017-05-24" : null}
-              onChange={(e) => handleChange(e, field.name)}
-            ></TextField>
-          ))}
-
-          <Dropdown
-            classDiv="center"
-            title="Employment Status"
-            menus={details.empStatusArray}
-            value={this.props.state.customer.empStatus}
-            handleChange={(e) => handleChange(e, "empStatus")}
-          />
-          <Button
-            className="btn center"
-            variant="contained"
-            color="primary"
-            onClick={goToResult}
-          >
-            Review Credit Cards
-          </Button>
-        </form>
-      </Paper>
+      <ThemeConsumer>
+        {({theme})=>(
+          <>
+          <Nav></Nav>
+          <Paper className={`paper theme-${theme}`} >
+            <form className="container">
+              <Dropdown
+                classDiv="title"
+                title="Title"
+                menus={details.titleArray}
+                value={this.props.state.customer.title}
+                handleChange={(e) => handleChange(e, "title")}
+              />
+    
+              {details.textFields.map((field) => (
+                <TextField
+                  required
+                  label={field.label}
+                  key={field.name}
+                  type={field.name === "dob" ? "date" : "text"}
+                  className="center"
+                  defaultValue={field.name === "dob" ? "2017-05-24" : null}
+                  onChange={(e) => handleChange(e, field.name)}
+                ></TextField>
+              ))}
+    
+              <Dropdown
+                classDiv="center"
+                title="Employment Status"
+                menus={details.empStatusArray}
+                value={this.props.state.customer.empStatus}
+                handleChange={(e) => handleChange(e, "empStatus")}
+              />
+              <Button
+                className="btn center"
+                variant="contained"
+                color="primary"
+                onClick={goToResult}
+              >
+                Review Credit Cards
+              </Button>
+            </form>
+          </Paper>
+          </>
+        )}
+      </ThemeConsumer>
     );
   }
 }

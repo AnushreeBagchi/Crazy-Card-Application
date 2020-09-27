@@ -5,7 +5,6 @@ const reducer = createReducer(
   [],
   {
     [onCardSelected.type] : (card, action) => {
-      // console.log("inside reducer", action.payload)
       card.push( action.payload);
     },
     [resetSelectedCards.type] : (card, action) => {
