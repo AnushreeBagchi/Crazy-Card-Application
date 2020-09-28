@@ -6,9 +6,11 @@ import { onCardSelected, resetSelectedCards, onCardRemoved } from "../store/acti
 import  Button  from '@material-ui/core/Button';
 import SelectGrid from "./SelectGrid";
 
+
 class Cards extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       cards: [
         {
@@ -60,7 +62,6 @@ class Cards extends React.Component {
       ],
     };
   }
-
   getAvailableCards(customer) {
     let available = ["Anywhere Card"];
     if (customer.income >= 16000) {
