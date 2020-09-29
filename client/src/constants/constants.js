@@ -9,6 +9,7 @@ export const DETAILS = {
     ],
   }
 
+export const  LIQUID_INCOME_RANGE = 16000;
 export const DOB_DEFAULT_VALUE = "2017-05-24";
 export const EMP_STATUS_LABEL  = "Employment Status";
 export const TITLE_LABEL = "Title";
