@@ -12,7 +12,7 @@ import {
 } from "../store/actions/card";
 import Button from "@material-ui/core/Button";
 import SelectGrid from "./SelectGrid";
-import { HOME_BTN_TEXT } from "../constants/constants";
+import { HOME_BTN_TEXT,LIQUID_INCOME_RANGE } from "../constants/constants";
 
 class Cards extends React.Component {
   async componentDidMount() {
@@ -24,7 +24,7 @@ class Cards extends React.Component {
   getAvailableCards(customer) {
     if (this.props.state.card.cards) {
       let available = ["Anywhere Card"];
-      if (customer.income >= 16000) {
+      if (customer.income >= LIQUID_INCOME_RANGE) {
         available.push("Liquid Card");
       }
       if (customer.empStatus === "Student") {
