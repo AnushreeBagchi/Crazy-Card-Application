@@ -1,6 +1,5 @@
 export const DETAILS = {
     textFields: [
-      { name: "name", label: "Name", type: "text" },
       { name: "dob", label: "Birthday", type: "date" },
       { name: "address", label: "Address", type: "text" },
       { name: "city", label: "City", type: "text" },

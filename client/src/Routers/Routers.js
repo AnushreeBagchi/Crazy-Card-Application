@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import Cards from "../components/Cards.jsx";
-import Customer from "../components/Customer.jsx";
+import Customer from "../components/Customer/Customer.jsx";
 import NotFound from '../components/NotFound.js';
 
 
