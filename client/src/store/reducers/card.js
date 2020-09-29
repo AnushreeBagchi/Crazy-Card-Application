@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { onCardSelected, resetSelectedCards, onCardRemoved, fetchCardsAction, fetchCardDetailsAction , loadSelectedCards} from "../actions/card";
+import { onCardSelected, resetSelectedCards, onCardRemoved, fetchCardsAction, fetchAvailableCardsAction , loadSelectedCards} from "../actions/card";
 
 const reducer = createReducer(
   {},
@@ -17,10 +17,10 @@ const reducer = createReducer(
        card.selectedCards= card.selectedCards.filter(e=>e.name !== action.payload.name);
     },
     [fetchCardsAction.type] : (card, action) => {
-      card.cards = action.payload.cards;
+      card.cards = action.payload;
     },
-    [fetchCardDetailsAction.type] : (card, action) => {
-      card.cardDetails = action.payload.cardDetails;
+    [fetchAvailableCardsAction.type] : (card, action) => {
+      card.availableCards = action.payload;
     }
   }
 );

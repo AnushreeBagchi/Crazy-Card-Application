@@ -7,32 +7,20 @@ import {
   resetSelectedCards,
   onCardRemoved,
   fetchCards,
-  fetchCardDetails,
   loadSelectedCards,
+  fetchAvailableCards
 } from "../store/actions/card";
 import Button from "@material-ui/core/Button";
 import SelectGrid from "./SelectGrid";
-import { HOME_BTN_TEXT,LIQUID_INCOME_RANGE, CARD_DETAILS } from "../constants/constants";
+import { HOME_BTN_TEXT, CARD_DETAILS } from "../constants/constants";
 
 class Cards extends React.Component {
   async componentDidMount() {
     await this.props.fetchCards();
-    this.props.loadSelectedCards();
-  }
 
-  getAvailableCards(customer) {
-    if (this.props.state.card.cards) {
-      let available = ["Anywhere Card"];
-      if (customer.income >= LIQUID_INCOME_RANGE) {
-        available.push("Liquid Card");
-      }
-      if (customer.empStatus === "Student") {
-        available.push("Student Life Card");
-      }
-      return this.props.state.card.cards.filter((card) =>
-        available.includes(card.name)
-      );
-    }
+    let customer = this.props.location.state.customer;
+    await this.props.fetchAvailableCards(customer );
+    this.props.loadSelectedCards();
   }
 
   goToHome() {
@@ -43,10 +31,8 @@ class Cards extends React.Component {
   }
 
   render() {
-    let customer = this.props.location.state
-      ? this.props.location.state.customer
-      : this.goToHome();
-    let availableCards = customer ? this.getAvailableCards(customer) : null;
+
+    let availableCards = this.props.state.card.availableCards ;
     return (
       <>
         <div className="page">
@@ -93,12 +79,12 @@ const mapDispatchToProps = (dispatch) => ({
   fetchCards: () => {
     dispatch(fetchCards());
   },
-  fetchCardDetails: () => {
-    dispatch(fetchCardDetails());
-  },
   loadSelectedCards: () => {
     dispatch(loadSelectedCards());
   },
+  fetchAvailableCards: (customer) => {
+    dispatch(fetchAvailableCards(customer));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cards);

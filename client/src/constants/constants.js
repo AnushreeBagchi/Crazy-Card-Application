@@ -40,6 +40,6 @@ export const INCOME_REQUIRED_MSG= "Required";
 export const MIN_LENGTH_MSG= "Length must be atleast 3 characters long! ";
 
 export const FETCH_CARDS_FAILED_MSG = "Fetch Cards Action Failed";
-export const FETCH_CARD_DETAILS_FAILED_MSG = "Fetch Card Details Action Failed";
+export const FETCH_AVAILABLE_CARDS_FAILED_MSG = "Fetch Available Card Failed";
 
 export const baseURL = "http://localhost:3000";

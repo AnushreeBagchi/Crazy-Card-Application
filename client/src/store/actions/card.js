@@ -7,6 +7,7 @@ export const onCardRemoved = createAction("onCardRemoved");
 export const fetchCardsAction = createAction("fetchCards");
 export const fetchCardDetailsAction = createAction("fetchCardDetails");
 export const loadSelectedCards = createAction("loadSelectedCards");
+export const fetchAvailableCardsAction = createAction("fetchAvailableCards");
 
 
 export const fetchCards = () => async (dispatch) => {
@@ -20,13 +21,15 @@ export const fetchCards = () => async (dispatch) => {
     })
 };
 
-export const fetchCardDetails = () => async (dispatch) => {
+export const fetchAvailableCards = (customer) => async (dispatch) => {
     return dispatch({
       type: "apiCallBegan",
       payload: {
-        url : "/cardDetails",
-        onSuccess: fetchCardDetailsAction.type,
-        onError: FETCH_CARD_DETAILS_FAILED_MSG
+        url : "/availableCards",
+        method: "POST",
+        data : customer,
+        onSuccess: fetchAvailableCardsAction.type,
+        onError: FETCH_AVAILABLE_CARDS_FAILED_MSG
       }
     })
 };

@@ -14,6 +14,11 @@ router.get('/cards', (req, res)=>{
     res.send(func.getCards(req.body))
 });
 
+router.post('/availableCards', (req, res)=>{
+    const body = req.body;
+    res.send(func.getAvailableCards(req.body))
+});
+
 app.use("/", router);
 
 var server = app.listen(3000, ()=>{
