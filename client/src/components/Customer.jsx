@@ -8,8 +8,16 @@ import {
   addCustomer,
   getValidations,
   validateField,
-  hasComponentError
+  hasComponentError,
 } from "../store/actions/customer";
+import {
+  DETAILS,
+  DOB_DEFAULT_VALUE,
+  EMP_STATUS_LABEL,
+  TITLE_LABEL,
+  TITLE_DROPDOWN,
+  EMP_STATUS_DROPDOWN,
+} from "../constants/constants";
 import { connect } from "react-redux";
 import Nav from "./Nav";
 import { ThemeConsumer } from "../contexts/theme";
@@ -22,19 +30,6 @@ class Customer extends React.Component {
     this.props.getValidations();
   }
   render() {
-    const details = {
-      titleArray: ["Mr", "Mrs", "Ms"],
-      empStatusArray: ["Full Time", "Part Time", "Student"],
-      textFields: [
-        { name: "name", label: "Name", type: "text" },
-        { name: "dob", label: "Birthday", type: "date" },
-        { name: "address", label: "Address", type: "text" },
-        { name: "city", label: "City", type: "text" },
-        { name: "postal", label: "Postal", type: "text" },
-        { name: "income", label: "Annual Income", type: "text" },
-      ],
-    };
-
     const handleChange = (e, field) => {
       this.props.validateField({ field, value: e.target.value });
       this.props.addCustomer({ [field]: e.target.value });
@@ -47,7 +42,6 @@ class Customer extends React.Component {
         return true;
       }
     };
-
 
     const goToResult = () => {
       this.props.history.push({
@@ -70,13 +64,13 @@ class Customer extends React.Component {
               <form className="container">
                 <Dropdown
                   classDiv="title"
-                  title="Title"
-                  menus={details.titleArray}
+                  title={TITLE_LABEL}
+                  menus={TITLE_DROPDOWN}
                   value={this.props.state.customer.title}
                   handleChange={(e) => handleChange(e, "title")}
                 />
 
-                {details.textFields.map((field) => (
+                {DETAILS.textFields.map((field) => (
                   <TextField
                     error={hasFieldError(field.name)}
                     helperText={getHelperText(field.name)}
@@ -85,7 +79,9 @@ class Customer extends React.Component {
                     key={field.name}
                     type={field.name === "dob" ? "date" : "text"}
                     className="center"
-                    defaultValue={field.name === "dob" ? "2017-05-24" : null}
+                    defaultValue={
+                      field.name === "dob" ? DOB_DEFAULT_VALUE : null
+                    }
                     onChange={(e) => handleChange(e, field.name)}
                   ></TextField>
                 ))}
@@ -93,9 +89,9 @@ class Customer extends React.Component {
                 <Dropdown
                   required={true}
                   classDiv="center"
-                  title="Employment Status"
-                  menus={details.empStatusArray}
-                  value={this.props.state.customer.empStatus}
+                  title={ EMP_STATUS_LABEL }
+                  menus={ EMP_STATUS_DROPDOWN }
+                  value={ this.props.state.customer.empStatus }
                   handleChange={(e) => handleChange(e, "empStatus")}
                 />
                 <Button
@@ -128,7 +124,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   validateField: (data) => {
     dispatch(validateField(data));
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Customer);

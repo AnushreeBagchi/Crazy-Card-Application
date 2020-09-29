@@ -4,6 +4,7 @@ import {
   getValidations,
   validateField,
 } from "../actions/customer";
+import {INCOME_ERROR_MSG,INCOME_REQUIRED_MSG, MIN_LENGTH_MSG } from "../../constants/constants";
 
 const reducer = createReducer(
   {},
@@ -16,7 +17,7 @@ const reducer = createReducer(
       if (!customer.errors) {
         return {
           errors: {
-            income: "Required",
+            income: INCOME_REQUIRED_MSG,
           },
         };
       }
@@ -27,9 +28,9 @@ const reducer = createReducer(
       switch (data.field) {
         case "income":
           if (isNaN(Number(data.value))) {
-            errors.income = "Must be a number";
+            errors.income = INCOME_ERROR_MSG;
           } else if (data.value == "") {
-            errors.income = "Required";
+            errors.income = INCOME_REQUIRED_MSG;
           } else {
             errors.income = "";
           }
@@ -37,13 +38,13 @@ const reducer = createReducer(
         case "name":
         case "address":
           errors[data.field] =
-            data.value.length < 5 ? "Length must be 5 characters long! " : "";
+            data.value.length < 5 ? MIN_LENGTH_MSG : "";
           break;
         case "city":
         case "postal":
           errors[data.field] =
             data.value.length < 3
-              ? "City must be atlest 3 characters long! "
+              ? MIN_LENGTH_MSG
               : "";
           break;
         default:

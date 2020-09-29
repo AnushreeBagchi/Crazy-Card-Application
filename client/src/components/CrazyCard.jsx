@@ -48,7 +48,7 @@ class CrazyCards extends React.Component {
             <CardMedia className="media" image={card.image} />
             <CardActionArea>
               <CardContent className="card-content">
-                {cardDetails.map((detail) => (
+                {cardDetails && cardDetails.map((detail) => (
                   <div key={detail.name} className="content">
                     <Typography variant="body2" color="textSecondary" component="p" >
                       {detail.text}

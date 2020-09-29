@@ -1,12 +1,10 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import "../../app/index.css";
+import { NO_CARD_TEXT } from "../constants/constants";
 
 function SelectGrid(props) {
   const getTotalCredit = () => {
@@ -34,7 +32,7 @@ function SelectGrid(props) {
               color="textSecondary"
               component="p"
             >
-              No Card Selected
+              {NO_CARD_TEXT}
             </Typography>
           ) : <div className="  header select-card-div" >
             {

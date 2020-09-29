@@ -1,9 +1,7 @@
 import React from "react";
 import FormControl from "@material-ui/core/FormControl";
-import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import NativeSelect from "@material-ui/core/NativeSelect";
-import FormHelperText from "@material-ui/core/FormHelperText";
 
 function Dropdown(props) {
   const handleChange = (e) => props.handleChange(e);

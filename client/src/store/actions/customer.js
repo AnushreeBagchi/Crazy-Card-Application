@@ -16,4 +16,3 @@ export const hasComponentError = (state) => {
     }
     return returnValue;
 }
-
