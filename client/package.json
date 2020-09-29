@@ -2,7 +2,7 @@
   "name": "crazycard",
   "version": "1.0.0",
   "description": "Crazy card application",
-  "main": "index.js",
+  "main": "src/components/App.js",
   "scripts": {
     "start": "webpack & webpack-dev-server",
     "build": "webpack",

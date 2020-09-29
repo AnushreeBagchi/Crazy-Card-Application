@@ -3,7 +3,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import "../../app/index.css";
+import "../../src/index.css";
 import { NO_CARD_TEXT } from "../constants/constants";
 
 function SelectGrid(props) {

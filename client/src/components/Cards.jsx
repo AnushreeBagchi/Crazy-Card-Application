@@ -1,5 +1,5 @@
 import React from "react";
-import "../../app/index.css";
+import "../../src/index.css";
 import { connect } from "react-redux";
 import CrazyCard from "./CrazyCard.jsx";
 import {

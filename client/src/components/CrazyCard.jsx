@@ -1,5 +1,5 @@
 import React from "react";
-import "../../app/index.css";
+import "../../src/index.css";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
