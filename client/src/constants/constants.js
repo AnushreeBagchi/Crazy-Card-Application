@@ -8,6 +8,24 @@ export const DETAILS = {
       { name: "income", label: "Annual Income", type: "text" },
     ],
   }
+  export const CARD_DETAILS =  [
+    {
+      name: "apr",
+      text: "Representative % APR (variable)",
+    },
+    {
+      text: "Balance Transfer Offer Duration",
+      name: "balanceOfferDuration",
+    },
+    {
+      text: "Purchase Offer Duration",
+      name: "purchaseOfferDuration",
+    },
+    {
+      text: "Credit Available",
+      name: "credit",
+    },
+  ]
 
 export const  LIQUID_INCOME_RANGE = 16000;
 export const DOB_DEFAULT_VALUE = "2017-05-24";

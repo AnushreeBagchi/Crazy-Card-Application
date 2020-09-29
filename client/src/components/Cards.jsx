@@ -12,12 +12,11 @@ import {
 } from "../store/actions/card";
 import Button from "@material-ui/core/Button";
 import SelectGrid from "./SelectGrid";
-import { HOME_BTN_TEXT,LIQUID_INCOME_RANGE } from "../constants/constants";
+import { HOME_BTN_TEXT,LIQUID_INCOME_RANGE, CARD_DETAILS } from "../constants/constants";
 
 class Cards extends React.Component {
   async componentDidMount() {
     await this.props.fetchCards();
-    await this.props.fetchCardDetails();
     this.props.loadSelectedCards();
   }
 
@@ -57,7 +56,7 @@ class Cards extends React.Component {
                 <CrazyCard
                   key={card.name}
                   card={card}
-                  cardDetails={this.props.state.card.cardDetails}
+                  cardDetails={CARD_DETAILS}
                   onSelect={(card) => this.props.onCardSelected(card)}
                   onRemove={(card) => this.props.onCardRemoved(card)}
                 />

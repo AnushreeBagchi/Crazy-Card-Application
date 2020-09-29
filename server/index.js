@@ -1,4 +1,4 @@
-var func = require("./getData")
+var func = require("./getCardData")
 var express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -13,11 +13,6 @@ router.get('/cards', (req, res)=>{
     const body = req.body;
     res.send(func.getCards(req.body))
 });
-
-router.get('/cardDetails', (req, res)=>{
-    const body = req.body;
-    res.send(func.getCardDetails(req.body))
-})
 
 app.use("/", router);
 

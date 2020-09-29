@@ -37,27 +37,5 @@ module.exports = {
         )
     },
 
-    getCardDetails : function() {
-        return ({
-            cardDetails: [
-                {
-                  name: "apr",
-                  text: "Representative % APR (variable)",
-                },
-                {
-                  text: "Balance Transfer Offer Duration",
-                  name: "balanceOfferDuration",
-                },
-                {
-                  text: "Purchase Offer Duration",
-                  name: "purchaseOfferDuration",
-                },
-                {
-                  text: "Credit Available",
-                  name: "credit",
-                },
-              ]
-        })
-    }
 }
     
