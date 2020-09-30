@@ -8,14 +8,11 @@ import Dropdown from "../Dropdown";
 import {
   addCustomer,
   getValidations,
-  validateField,
 } from "../../store/actions/customer";
+import "../../index.css";
 import {
   DETAILS,
-  EMP_STATUS_LABEL,
   TITLE_LABEL,
-  TITLE_DROPDOWN,
-  EMP_STATUS_DROPDOWN,
 } from "../../constants/constants";
 import { connect } from "react-redux";
 import { ThemeConsumer } from "../../contexts/theme";
@@ -26,9 +23,7 @@ class Customer extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
-    this.props.getValidations();
-  }
+
   render() {
     const handleChange = (e, field) => {
       this.props.addCustomer({ [field]: e.target.value });
@@ -59,7 +54,7 @@ class Customer extends React.Component {
                 <Paper className={`paper theme-${theme}`}>
                   <Container>
                     <Grid container spacing={1}>
-                      <Grid item xs={12}>
+                      <Grid item xs={12} >
                         <form className="container">
                           <Grid container spacing={1}>
                             <Grid item lg={2} md={3} sm={4} xs={12}>
@@ -78,12 +73,11 @@ class Customer extends React.Component {
                             </Grid>
                             
                           </Grid>
-
+                          {/* <Grid container > */}
                           <TextFieldGenerator
-                            validations={this.props.state.customer.errors}
                             textFields={DETAILS.textFields}
                           ></TextFieldGenerator>
-
+                          {/* </Grid> */}
                           <Dropdown
                             required={true}
                             classDiv="center"
@@ -134,9 +128,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getValidations: () => {
     dispatch(getValidations());
-  },
-  validateField: (data) => {
-    dispatch(validateField(data));
   },
 });
 

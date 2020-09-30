@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Cards from "../Cards.jsx";
+import Cards from "../Cards/Cards.jsx";
 import Customer from "../Customer/Customer.jsx";
 import NotFound from '../NotFound.js';
 

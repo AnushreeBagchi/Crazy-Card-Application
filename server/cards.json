@@ -2,7 +2,7 @@
   "cards": [
     {
       "name": "Student Life Card",
-      "image": "../src/images/cards/studentLife.png",
+      "image": "https://ddialhyn49dxu.cloudfront.net/cards/hsbc2018-large.png",
       "apr": "18.9%",
       "balanceOfferDuration": "0 months",
       "purchaseOfferDuration": "6 months",
@@ -12,7 +12,7 @@
     },
     {
       "name": "Anywhere Card",
-      "image": "../src/images/cards/anywhere.png",
+      "image": "https://ddialhyn49dxu.cloudfront.net/cards/mbna2019-large.png",
       "apr": "33.9%",
       "balanceOfferDuration": "0 months",
       "purchaseOfferDuration": "0 months",
@@ -22,7 +22,7 @@
     },
     {
       "name": "Liquid Card",
-      "image": "../src/images/cards/liquid.png",
+      "image": "https://ddialhyn49dxu.cloudfront.net/cards/ms-bank-large.png",
       "apr": "33.9%",
       "balanceOfferDuration": "12 months",
       "purchaseOfferDuration": "6 months",

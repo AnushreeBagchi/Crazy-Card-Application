@@ -1,13 +1,4 @@
 
-.theme-light {
-    background: #fafafa;
-    border: 1px solid #ebebeb;
-}
-
-.theme-dark {
-    background-color: #435863 !important;
-    color: #ebebeb !important;
-}
 
 .btn {
     width: 70% !important;
@@ -18,13 +9,7 @@
     text-align: center;
 }
 
-.center {
-    justify-content: center;
-    margin-bottom: 3em !important;
-    width: 100%;
-    text-align: center;
 
-}
 
 .name {
     width: 75%;
@@ -104,11 +89,6 @@ form {
     display: flex;
 }
 
-.flex-end{
-    position: absolute;
-    right: 0;
-    padding-right: 1em;
-}
 .row {
     display: flex;
     flex-direction: column;

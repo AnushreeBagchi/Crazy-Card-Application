@@ -4,13 +4,21 @@
 }
 
 .theme-light {
-    background: #fafafa;
+    background: #e3e3e3;
     border: 1px solid #ebebeb;
 }
 
 .theme-dark {
-    background-color: #435863 !important;
+    background-color: #9e9e9e33 !important;
     color: #ebebeb !important;
+}
+
+.center {
+    justify-content: center;
+    margin-bottom: 3em !important;
+    width: 100%;
+    text-align: center;
+
 }
 
 .btn {
@@ -25,4 +33,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+form {
+    position: relative;
 }
