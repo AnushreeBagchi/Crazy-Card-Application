@@ -9,7 +9,7 @@ import {
   addCustomer,
   getValidations,
   validateField,
-  hasComponentError,
+  hasRequiredValue,
 } from "../../store/actions/customer";
 import {
   DETAILS,
@@ -23,6 +23,7 @@ import { connect } from "react-redux";
 import Nav from "../Nav";
 import { ThemeConsumer } from "../../contexts/theme";
 import { Container } from "@material-ui/core";
+import TextFieldGenerator from "../TextFieldGenerator/TextFieldGenerator.jsx";
 
 class Customer extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Customer extends React.Component {
   }
   render() {
     const handleChange = (e, field) => {
-      this.props.validateField({ field, value: e.target.value });
+      // this.props.validateField({ field, value: e.target.value });
       this.props.addCustomer({ [field]: e.target.value });
     };
 
@@ -51,6 +52,13 @@ class Customer extends React.Component {
         state: this.props.state,
       });
     };
+
+    const isDisabled = () => {
+      let customer = this.props.state.customer;
+      let requiredField = DETAILS.textFields.filter(field => field.required === true);
+      return customer[requiredField[0].name] ? false : true;
+
+    }
 
     const getHelperText = (name) => {
       let errors = this.props.state.customer.errors;
@@ -92,21 +100,13 @@ class Customer extends React.Component {
                             </Grid>
                           </Grid>
 
-                          {DETAILS.textFields.map((field) => (
-                            <TextField
-                              error={hasFieldError(field.name)}
-                              helperText={getHelperText(field.name)}
-                              required={field.name === "income"}
-                              label={field.label}
-                              key={field.name}
-                              type={field.name === "dob" ? "date" : "text"}
-                              className="center"
-                              defaultValue={
-                                field.name === "dob" ? DOB_DEFAULT_VALUE : null
-                              }
-                              onChange={(e) => handleChange(e, field.name)}
-                            ></TextField>
-                          ))}
+                          <TextFieldGenerator
+                            validations={this.props.state.customer.errors}
+                            textFields={DETAILS.textFields}
+                            getHelperText={() => getHelperText()}
+                            hasFieldError={() => hasFieldError()}
+                            handleChange={handleChange}
+                          ></TextFieldGenerator>
 
                           <Dropdown
                             required={true}
@@ -123,13 +123,13 @@ class Customer extends React.Component {
                             justify="center"
                             alignItems="center"
                           >
-                            <Grid item lg={6} md={6} className = "btn-grid">
+                            <Grid item lg={6} md={6} className="btn-grid">
                               <Button
-                              className="btn"
+                                className="btn"
                                 variant="contained"
                                 color="primary"
                                 onClick={goToResult}
-                                disabled={hasComponentError(this.props.state)}
+                                disabled={isDisabled()}
                               >
                                 Review Credit Cards
                               </Button>

@@ -1,5 +1,5 @@
 import { createAction} from "@reduxjs/toolkit";
-import { FETCH_CARDS_FAILED_MSG , FETCH_CARD_DETAILS_FAILED_MSG} from "../../constants/constants"
+import { FETCH_CARDS_FAILED_MSG ,  FETCH_AVAILABLE_CARDS_FAILED_MSG} from "../../constants/constants"
 
 export const onCardSelected = createAction("onCardSelected");
 export const resetSelectedCards = createAction("resetSelectedCards");
