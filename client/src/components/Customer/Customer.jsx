@@ -9,18 +9,15 @@ import {
   addCustomer,
   getValidations,
   validateField,
-  hasRequiredValue,
 } from "../../store/actions/customer";
 import {
   DETAILS,
-  DOB_DEFAULT_VALUE,
   EMP_STATUS_LABEL,
   TITLE_LABEL,
   TITLE_DROPDOWN,
   EMP_STATUS_DROPDOWN,
 } from "../../constants/constants";
 import { connect } from "react-redux";
-import Nav from "../Nav";
 import { ThemeConsumer } from "../../contexts/theme";
 import { Container } from "@material-ui/core";
 import TextFieldGenerator from "../TextFieldGenerator/TextFieldGenerator.jsx";
@@ -34,18 +31,8 @@ class Customer extends React.Component {
   }
   render() {
     const handleChange = (e, field) => {
-      // this.props.validateField({ field, value: e.target.value });
       this.props.addCustomer({ [field]: e.target.value });
     };
-
-    const hasFieldError = (field) => {
-      let errors = this.props.state.customer.errors;
-      let error = errors ? errors[field] : "";
-      if (error) {
-        return true;
-      }
-    };
-
     const goToResult = () => {
       this.props.history.push({
         pathname: "/cards/",
@@ -57,19 +44,11 @@ class Customer extends React.Component {
       let customer = this.props.state.customer;
       let requiredField = DETAILS.textFields.filter(field => field.required === true);
       return customer[requiredField[0].name] ? false : true;
-
     }
-
-    const getHelperText = (name) => {
-      let errors = this.props.state.customer.errors;
-      return errors ? errors[name] : "";
-    };
-
     return (
       <ThemeConsumer>
         {({ theme }) => (
           <>
-            {/* <Nav></Nav> */}
             <Grid
               container
               direction="row"
@@ -82,7 +61,7 @@ class Customer extends React.Component {
                     <Grid container spacing={1}>
                       <Grid item xs={12}>
                         <form className="container">
-                          <Grid container>
+                          <Grid container spacing={1}>
                             <Grid item lg={2} md={3} sm={4} xs={12}>
                               <Dropdown
                                 classDiv="title"
@@ -92,20 +71,17 @@ class Customer extends React.Component {
                                 handleChange={(e) => handleChange(e, "title")}
                               />
                             </Grid>
-                            <Grid item xs={10} md={9} sm={8} xs={12}>
+                            <Grid item lg={10} md={9} sm={8} xs={12} >
                               <TextField
-                                className="center"
                                 label="Name"
                               ></TextField>
                             </Grid>
+                            
                           </Grid>
 
                           <TextFieldGenerator
                             validations={this.props.state.customer.errors}
                             textFields={DETAILS.textFields}
-                            getHelperText={() => getHelperText()}
-                            hasFieldError={() => hasFieldError()}
-                            handleChange={handleChange}
                           ></TextFieldGenerator>
 
                           <Dropdown
