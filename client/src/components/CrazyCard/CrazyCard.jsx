@@ -1,5 +1,6 @@
 import React from "react";
 import DisplayCard from "../DisplayCard/DisplayCard.jsx";
+import PropTypes from "prop-types";
 
 class CrazyCard extends React.Component {
   constructor(props) {
@@ -38,4 +39,11 @@ class CrazyCard extends React.Component {
     );
   }
 }
+
+CrazyCard.propTypes = {
+  card:PropTypes.object,
+  onSelect:PropTypes.func,
+  onRemove:PropTypes.func,
+
+} 
 export default CrazyCard;

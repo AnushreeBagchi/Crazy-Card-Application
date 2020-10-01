@@ -7,7 +7,6 @@ import "./Customer.css";
 import Dropdown from "../Dropdown/Dropdown.jsx";
 import {
   addCustomer,
-  getValidations,
 } from "../../store/actions/customer";
 import "../../index.css";
 import {
@@ -128,10 +127,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   addCustomer: (data) => {
     dispatch(addCustomer(data));
-  },
-  getValidations: () => {
-    dispatch(getValidations());
-  },
+  }
 });
 
 export {Customer};

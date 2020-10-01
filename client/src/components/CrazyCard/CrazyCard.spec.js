@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import CrazyCard from './CrazyCard.jsx';
 
-describe("Tests for Display Card", ()=> {
+describe("Tests for Crazy Card", ()=> {
     const mockCard = {
         "name": "Student Life Card",
         "image": "https://ddialhyn49dxu.cloudfront.net/cards/hsbc2018-large.png",

@@ -80,12 +80,12 @@ const DisplayCard = (props) => {
       <CardActions  className={classes.actions}>
       <>
       {!hideAddBtn && (
-          <Button variant="contained" size="medium" color="primary" onClick={selectCard}>
+          <Button className="add-btn" variant="contained" size="medium" color="primary" onClick={selectCard}>
             ADD Card
           </Button>
         )}
         {!hideRemoveBtn && (
-          <Button variant="contained" size="medium" color="default" onClick={removeCard}>
+          <Button className="remove-btn" variant="contained" size="medium" color="default" onClick={removeCard}>
             Remove Card
           </Button>
         )}

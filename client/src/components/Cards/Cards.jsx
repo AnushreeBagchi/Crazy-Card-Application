@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import CrazyCard from "../CrazyCard/CrazyCard.jsx";
 import SelectGrid from "../SelectedGrid/SelectGrid.jsx";
-
 import {
   onCardSelected,
   resetSelectedCards,
@@ -13,16 +12,12 @@ import {
 } from "../../store/actions/card";
 
 import { Grid, Container } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 class Cards extends React.Component {
   async componentDidMount() {
-    try{
-      await this.props.fetchCards();
-    } catch{
-      console.log("Fetch Cards failed");
-    }
-
-    let customer = this.props.state.customer;
+    await this.props.fetchCards();
+    let customer =  this.props.location.state.customer;
     await this.props.fetchAvailableCards(customer);
     this.props.loadSelectedCards();
   }
@@ -67,6 +62,14 @@ class Cards extends React.Component {
     );
   }
 }
+Cards.propTypes = {
+  fetchAvailableCards : PropTypes.func, 
+  fetchCards : PropTypes.func,
+  loadSelectedCards : PropTypes.func,
+  resetSelectedCards:PropTypes.func,
+  onCardRemoved:PropTypes.func,
+  onCardSelected: PropTypes.func
+} 
 
 const mapStateToProps = (state) => ({ state: state });
 const mapDispatchToProps = (dispatch) => ({

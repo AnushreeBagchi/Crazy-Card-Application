@@ -1,4 +1,4 @@
-import { addCustomer, getValidations } from "../actions/customer";
+import { addCustomer } from "../actions/customer";
 import configureStore from "../configureStore";
 
 

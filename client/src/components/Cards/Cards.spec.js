@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { Cards } from "./Cards.jsx";
 
-describe("Tests for Card", () => {
+describe("Tests for Cards", () => {
   const fetchCards = () => ({});
   const fetchAvailableCards = () => ({});
   const loadSelectedCards = () => ({});

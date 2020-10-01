@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import Dropdown from "./Dropdown";
 import {TITLE_LABEL,TITLE_DROPDOWN } from "../../constants/constants";
 
-describe("Tests for Card", () => {
+describe("Tests for Dropdown", () => {
 
   it("Renders correctly", () => {
     const wrapper = shallow(

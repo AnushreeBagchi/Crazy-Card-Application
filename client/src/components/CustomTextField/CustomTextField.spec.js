@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import {CustomTextField} from './CustomTextField.jsx';
 
-describe("Tests for CustomTextField Card", ()=> {
+describe("Tests for CustomTextField ", ()=> {
     const mockField = {
             name: "dob",
             label: "Birthday",
