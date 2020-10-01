@@ -10,7 +10,7 @@
 
 .theme-dark {
     background-color: #9e9e9e33 !important;
-    color: #ebebeb !important;
+    color: #3f51b5 !important;
 }
 
 .center {
@@ -37,4 +37,13 @@
 
 form {
     position: relative;
+}
+
+.name-field {
+    margin-bottom: 3em !important;
+    width: 100%;
+}
+
+.name {
+    width: 100%;
 }

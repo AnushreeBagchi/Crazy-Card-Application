@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests for CustomTextField Card Renders correctly 1`] = `
+exports[`Tests for CustomTextField  Renders correctly 1`] = `
 <WithStyles(ForwardRef(TextField))
   className="center"
   defaultValue="2017-05-24"

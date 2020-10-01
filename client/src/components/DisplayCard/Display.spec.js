@@ -23,28 +23,4 @@ describe("Tests for Display Card", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("The button should have test ADD Card", () => {
-    const onButtonClickMock = jest.fn();
-    const wrapper = shallow(
-      <DisplayCard card={mockCard} hideAddBtn={false} hideRemoveBtn={true} />
-    );
-    const addBtn = wrapper.find(".add-btn");
-    expect(addBtn.text()).toEqual("ADD Card");
-    
-  });
-
-  it("On Clicking Add Card, the button should toggle",()=>{
-    const onButtonClickMock = jest.fn();
-    const wrapper = shallow(
-      <DisplayCard card={mockCard} hideAddBtn={false} hideRemoveBtn={true} />
-    );
-    const addBtn = wrapper.find(".add-btn");
-    addBtn.simulate("click");
-    jest.useFakeTimers();
-    setTimeout(()=>{
-        const removeBtn = wrapper.find(".remove-btn");
-        jest.runAllTimers();
-        expect(removeBtn.text()).toEqual("Remove Card");
-    },1000);
-  });
 });

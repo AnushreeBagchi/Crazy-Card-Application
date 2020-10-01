@@ -1,16 +1,5 @@
 
 
-.btn {
-    width: 70% !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-}
-
-
-
 .name {
     width: 75%;
     position: absolute !important;
@@ -74,20 +63,6 @@ form {
     border: 1px solid #ebebeb;
 }
 
-
-.selected-div {
-    background: #fafafa;
-    border: 1px solid #ebebeb;
-    width: 30%;
-    position: fixed;
-    right: 0;
-    margin: 1em;
-}
-
-.selected-card {
-    display: flex;
-}
-
 .row {
     display: flex;
     flex-direction: column;
@@ -106,14 +81,6 @@ form {
     margin: 1em 0 !important;
     width: 100%;
     text-align: center;
-}
-
-.total {
-   bottom: 0 !important
-}
-
-.select-card-div {
-    height: 15em;
 }
 
 .nav {

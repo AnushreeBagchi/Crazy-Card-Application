@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests for Display Card Renders correctly 1`] = `
+exports[`Tests for Crazy Card Renders correctly 1`] = `
 <DisplayCard
   card={
     Object {

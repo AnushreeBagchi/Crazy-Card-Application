@@ -8,7 +8,6 @@ import Dropdown from "../Dropdown/Dropdown.jsx";
 import {
   addCustomer,
 } from "../../store/actions/customer";
-import "../../index.css";
 import {
   DETAILS,
   TITLE_LABEL,
@@ -58,8 +57,8 @@ class Customer extends React.Component {
                     <Grid container spacing={1}>
                       <Grid item xs={12} >
                         <form className="container">
-                          <Grid container spacing={1}>
-                            <Grid item lg={2} md={3} sm={4} xs={12}>
+                          <Grid className="name-field" container spacing={1}>
+                            <Grid  item lg={2} md={3} sm={4} xs={12}>
                               <Dropdown
                                 classDiv="title"
                                 title={TITLE_LABEL}
@@ -70,16 +69,15 @@ class Customer extends React.Component {
                             </Grid>
                             <Grid item lg={10} md={9} sm={8} xs={12} >
                               <TextField
+                              className="name"
                                 label="Name"
                               ></TextField>
                             </Grid>
                             
                           </Grid>
-                          {/* <Grid container > */}
                           <TextFieldGenerator
                             textFields={DETAILS.textFields}
                           ></TextFieldGenerator>
-                          {/* </Grid> */}
                           <Dropdown
                             required={true}
                             classDiv="center"
