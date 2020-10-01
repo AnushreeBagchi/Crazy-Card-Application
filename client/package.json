@@ -48,7 +48,9 @@
     "redux": "^4.0.5"
   },
   "jest": {
-    "moduleNameMapper": { "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js" },
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
     "setupFilesAfterEnv": [
       "jest-enzyme"
     ],
@@ -59,8 +61,5 @@
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-(native|universal|navigation)-(.*)|@react-native-community/(.*)|@react-navigation/(.*)|bs-platform)"
     ]
-    
- 
-  
   }
 }

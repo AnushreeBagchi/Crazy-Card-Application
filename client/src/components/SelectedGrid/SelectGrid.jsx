@@ -20,11 +20,13 @@ const useStyles = makeStyles((theme) => ({
 
 function SelectGrid(props) {
   const classes = useStyles();
+
   const getTotalCredit = () => {
     return props.selectedCards.reduce((total, card) => {
       return (total += Number(card.credit.slice(1)));
     }, 0);
   };
+
   return (
     <ThemeConsumer>
       {({ theme }) => (
@@ -105,7 +107,7 @@ function SelectGrid(props) {
               variant="contained"
               size="medium"
               color="primary"
-              onClick={() => this.goToHome()}
+              onClick={() => props.reset()}
             >
               Reset
             </Button>

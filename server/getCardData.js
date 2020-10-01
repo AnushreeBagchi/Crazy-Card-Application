@@ -1,7 +1,6 @@
 var cards = require("./cards.json").cards;
 module.exports = {
     getCards : function () {
-      console.log(cards)
         return cards
     },
 

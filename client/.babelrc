@@ -6,7 +6,8 @@
             {
                 "regenerator": true
             }
-        ]
+        ], 
+        "@babel/plugin-proposal-class-properties"
     ],
     "env": {
         "test": {

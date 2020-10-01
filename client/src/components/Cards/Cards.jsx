@@ -22,7 +22,7 @@ class Cards extends React.Component {
     this.props.loadSelectedCards();
   }
 
-  goToHome() {
+  goToHome = ()  => {
     this.props.resetSelectedCards();
     this.props.history.push({
       pathname: "/",
@@ -53,7 +53,7 @@ class Cards extends React.Component {
           </Grid>
           <Grid item lg={4} md={6} sm={12} xs={12}>
             {this.props.state.card.selectedCards && (
-              <SelectGrid selectedCards={this.props.state.card.selectedCards} />
+              <SelectGrid selectedCards={this.props.state.card.selectedCards} reset={this.goToHome}/>
             )}
      
           </Grid>
