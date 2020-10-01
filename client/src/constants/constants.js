@@ -54,8 +54,11 @@ export const CARD_DETAILS = [
   },
 ];
 
+export const EMP_STATUS_LABEL = "Employment Status";
 export const TITLE_LABEL = "Title";
-export const HOME_BTN_TEXT = "Reset";
+export const TITLE_DROPDOWN = ["Mr", "Mrs", "Ms"];
+export const EMP_STATUS_DROPDOWN = ["Full Time", "Part Time", "Student"];
+export const HOME_BTN_TEXT = "Navigate to Home";
 export const NO_CARD_TEXT = "No Card Selected";
 export const INCOME_ERROR_MSG = "Must be a number";
 export const INCOME_REQUIRED_MSG = "Required";

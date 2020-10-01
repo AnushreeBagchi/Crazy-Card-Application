@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for CustomTextField Card Renders correctly 1`] = `
+<WithStyles(ForwardRef(TextField))
+  className="center"
+  defaultValue="2017-05-24"
+  error={false}
+  helperText=""
+  label="Birthday"
+  onChange={[Function]}
+  type="date"
+/>
+`;

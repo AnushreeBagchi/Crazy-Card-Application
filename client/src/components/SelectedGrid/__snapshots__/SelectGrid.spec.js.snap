@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Card Renders correctly 1`] = `
+<WithStyles(ForwardRef(Card))
+  elevation={3}
+>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="center"
+  >
+    <WithStyles(ForwardRef(Typography))
+      component="h2"
+      gutterBottom={true}
+      variant="h5"
+    >
+      Selected Cards
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Divider))
+    variant="middle"
+  />
+  <WithStyles(ForwardRef(CardContent))>
+    <div>
+      <WithStyles(ForwardRef(Grid))
+        className="makeStyles-rowGrid-1"
+        container={true}
+        direction="row"
+        key="Student Life Card"
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          lg={10}
+          md={10}
+          sm={10}
+          xs={10}
+        >
+          <WithStyles(ForwardRef(Typography))
+            color="textSecondary"
+            component="p"
+            variant="subtitle1"
+          >
+            Student Life Card
+          </WithStyles(ForwardRef(Typography))>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          lg={2}
+          md={2}
+          sm={2}
+          xs={2}
+        >
+          <WithStyles(ForwardRef(Typography))
+            color="textPrimary"
+            component="p"
+            variant="subtitle2"
+          >
+            £1200
+          </WithStyles(ForwardRef(Typography))>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </div>
+    <WithStyles(ForwardRef(Divider))
+      variant="middle"
+    />
+    <WithStyles(ForwardRef(Grid))
+      className="makeStyles-rowGrid-1"
+      container={true}
+      direction="row"
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        lg={10}
+        md={10}
+        sm={10}
+        xs={10}
+      >
+        <WithStyles(ForwardRef(Typography))
+          color="textSecondary"
+          component="p"
+          variant="subtitle1"
+        >
+          Total
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        lg={2}
+        md={2}
+        sm={2}
+        xs={2}
+      >
+        <WithStyles(ForwardRef(Typography))
+          color="textPrimary"
+          component="p"
+          variant="subtitle2"
+        >
+          £
+          1200
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(CardContent))>
+  <WithStyles(ForwardRef(CardActions))>
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      onClick={[Function]}
+      size="medium"
+      variant="contained"
+    >
+      Reset
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
+`;

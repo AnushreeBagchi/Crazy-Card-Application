@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import "./Customer.css";
-import Dropdown from "../Dropdown";
+import Dropdown from "../Dropdown/Dropdown.jsx";
 import {
   addCustomer,
   getValidations,
@@ -13,6 +13,9 @@ import "../../index.css";
 import {
   DETAILS,
   TITLE_LABEL,
+  TITLE_DROPDOWN,
+  EMP_STATUS_LABEL,
+  EMP_STATUS_DROPDOWN
 } from "../../constants/constants";
 import { connect } from "react-redux";
 import { ThemeConsumer } from "../../contexts/theme";
@@ -131,4 +134,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {Customer};
 export default connect(mapStateToProps, mapDispatchToProps)(Customer);

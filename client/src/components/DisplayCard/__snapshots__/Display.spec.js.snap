@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Display Card Renders correctly 1`] = `
+<WithStyles(ForwardRef(Card))
+  elevation={3}
+  key="Student Life Card"
+>
+  <WithStyles(ForwardRef(CardMedia))
+    className="makeStyles-media-2"
+    image="https://ddialhyn49dxu.cloudfront.net/cards/hsbc2018-large.png"
+  />
+  <WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(Typography))
+      component="h2"
+      gutterBottom={true}
+      variant="h5"
+    >
+      <center>
+        Student Life Card
+      </center>
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Divider))
+      variant="middle"
+    />
+    <WithStyles(ForwardRef(List))
+      aria-label="main mailbox folders"
+      component="nav"
+    >
+      <WithStyles(ForwardRef(ListItem))
+        key="apr"
+      >
+        <WithStyles(ForwardRef(ListItemText))
+          secondary={
+            <React.Fragment>
+              <WithStyles(ForwardRef(Typography))
+                className="makeStyles-inline-3"
+                color="textPrimary"
+                component="span"
+                variant="body2"
+              >
+                Representative % APR (variable)
+              </WithStyles(ForwardRef(Typography))>
+              <br />
+              <WithStyles(ForwardRef(Typography))
+                className="makeStyles-inline-3"
+                color="textSecondary"
+                component="span"
+                variant="body2"
+              >
+                18.9%
+              </WithStyles(ForwardRef(Typography))>
+            </React.Fragment>
+          }
+        />
+      </WithStyles(ForwardRef(ListItem))>
+      <WithStyles(ForwardRef(Divider))
+        component="li"
+        key="divider-apr"
+      />
+      <WithStyles(ForwardRef(ListItem))
+        key="balanceOfferDuration"
+      >
+        <WithStyles(ForwardRef(ListItemText))
+          secondary={
+            <React.Fragment>
+              <WithStyles(ForwardRef(Typography))
+                className="makeStyles-inline-3"
+                color="textPrimary"
+                component="span"
+                variant="body2"
+              >
+                Balance Transfer Offer Duration
+              </WithStyles(ForwardRef(Typography))>
+              <br />
+              <WithStyles(ForwardRef(Typography))
+                className="makeStyles-inline-3"
+                color="textSecondary"
+                component="span"
+                variant="body2"
+              >
+                0 months
+              </WithStyles(ForwardRef(Typography))>
+            </React.Fragment>
+          }
+        />
+      </WithStyles(ForwardRef(ListItem))>
+      <WithStyles(ForwardRef(Divider))
+        component="li"
+        key="divider-balanceOfferDuration"
+      />
+      <WithStyles(ForwardRef(ListItem))
+        key="purchaseOfferDuration"
+      >
+        <WithStyles(ForwardRef(ListItemText))
+          secondary={
+            <React.Fragment>
+              <WithStyles(ForwardRef(Typography))
+                className="makeStyles-inline-3"
+                color="textPrimary"
+                component="span"
+                variant="body2"
+              >
+                Purchase Offer Duration
+              </WithStyles(ForwardRef(Typography))>
+              <br />
+              <WithStyles(ForwardRef(Typography))
+                className="makeStyles-inline-3"
+                color="textSecondary"
+                component="span"
+                variant="body2"
+              >
+                6 months
+              </WithStyles(ForwardRef(Typography))>
+            </React.Fragment>
+          }
+        />
+      </WithStyles(ForwardRef(ListItem))>
+      <WithStyles(ForwardRef(Divider))
+        component="li"
+        key="divider-purchaseOfferDuration"
+      />
+      <WithStyles(ForwardRef(ListItem))
+        key="credit"
+      >
+        <WithStyles(ForwardRef(ListItemText))
+          secondary={
+            <React.Fragment>
+              <WithStyles(ForwardRef(Typography))
+                className="makeStyles-inline-3"
+                color="textPrimary"
+                component="span"
+                variant="body2"
+              >
+                Credit Available
+              </WithStyles(ForwardRef(Typography))>
+              <br />
+              <WithStyles(ForwardRef(Typography))
+                className="makeStyles-inline-3"
+                color="textSecondary"
+                component="span"
+                variant="body2"
+              >
+                £1200
+              </WithStyles(ForwardRef(Typography))>
+            </React.Fragment>
+          }
+        />
+      </WithStyles(ForwardRef(ListItem))>
+      <WithStyles(ForwardRef(Divider))
+        component="li"
+        key="divider-credit"
+      />
+    </WithStyles(ForwardRef(List))>
+  </WithStyles(ForwardRef(CardContent))>
+  <WithStyles(ForwardRef(CardActions))>
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      size="medium"
+      variant="contained"
+    >
+      ADD Card
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      color="default"
+      size="medium"
+      variant="contained"
+    >
+      Remove Card
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
+`;

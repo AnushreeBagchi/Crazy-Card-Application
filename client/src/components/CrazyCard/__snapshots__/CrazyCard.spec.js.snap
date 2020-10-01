@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Display Card Renders correctly 1`] = `
+<DisplayCard
+  card={
+    Object {
+      "apr": "18.9%",
+      "balanceOfferDuration": "0 months",
+      "credit": "£1200",
+      "empStatus": "Student",
+      "image": "https://ddialhyn49dxu.cloudfront.net/cards/hsbc2018-large.png",
+      "min_income": 0,
+      "name": "Student Life Card",
+      "purchaseOfferDuration": "6 months",
+    }
+  }
+  hideAddBtn={false}
+  hideRemoveBtn={true}
+  removeCard={[Function]}
+  selectCard={[Function]}
+/>
+`;

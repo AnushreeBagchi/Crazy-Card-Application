@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Routers from "./Routers/Routers";
+import Routers from "./Routers/Routers.jsx";
 import configureStore from "../store/configureStore";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "../contexts/theme";
 import { Container, Grid } from "@material-ui/core";
-import Nav from "./Nav/Nav";
-import { createMuiTheme } from "@material-ui/core/styles";
-import purple from "@material-ui/core/colors/purple";
-
+import Nav from "./Nav/Nav.jsx";
 
 
 const store = configureStore();

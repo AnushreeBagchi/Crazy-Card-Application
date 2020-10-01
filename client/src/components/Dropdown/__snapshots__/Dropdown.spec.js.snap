@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Card Renders correctly 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(FormControl))
+    className="title"
+  >
+    <WithStyles(ForwardRef(InputLabel))>
+      Title
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(NativeSelect))
+      onChange={[Function]}
+    >
+      <option
+        key="Mr"
+      >
+        Mr
+      </option>
+      <option
+        key="Mrs"
+      >
+        Mrs
+      </option>
+      <option
+        key="Ms"
+      >
+        Ms
+      </option>
+    </WithStyles(ForwardRef(NativeSelect))>
+  </WithStyles(ForwardRef(FormControl))>
+</Fragment>
+`;

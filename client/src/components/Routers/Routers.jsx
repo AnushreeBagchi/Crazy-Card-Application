@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Cards from "../Cards/Cards.jsx";
 import Customer from "../Customer/Customer.jsx";
-import NotFound from '../NotFound.js';
+import NotFound from '../NotFound.jsx';
 
 
 export default function Routers() {

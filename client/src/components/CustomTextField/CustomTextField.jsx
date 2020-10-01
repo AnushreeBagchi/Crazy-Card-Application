@@ -43,4 +43,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {CustomTextField};
+
 export default connect(mapStateToProps, mapDispatchToProps)(CustomTextField);

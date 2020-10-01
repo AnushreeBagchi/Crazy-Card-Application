@@ -16,9 +16,13 @@ import { Grid, Container } from "@material-ui/core";
 
 class Cards extends React.Component {
   async componentDidMount() {
-    await this.props.fetchCards();
+    try{
+      await this.props.fetchCards();
+    } catch{
+      console.log("Fetch Cards failed");
+    }
 
-    let customer = this.props.location.state.customer;
+    let customer = this.props.state.customer;
     await this.props.fetchAvailableCards(customer);
     this.props.loadSelectedCards();
   }
@@ -86,4 +90,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {Cards};
 export default connect(mapStateToProps, mapDispatchToProps)(Cards);

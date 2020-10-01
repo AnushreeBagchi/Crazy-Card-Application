@@ -1,5 +1,5 @@
-import configureStore from "../store/configureStore";
-import { loadSelectedCards, onCardSelected, onCardRemoved } from '../store/actions/card';
+import configureStore from "../configureStore";
+import { loadSelectedCards, onCardSelected, onCardRemoved } from '../actions/card';
 
 describe ("Card Tests", ()=> {
     let store;

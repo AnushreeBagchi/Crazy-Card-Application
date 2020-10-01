@@ -57,7 +57,6 @@ export default function Nav() {
           </AppBar>
         </>
 
-        //     <button className={`theme-btn theme-${theme}`} style= {{fontSize: 30}}
       )}
     </ThemeConsumer>
   );

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Card Renders correctly 1`] = `
+<Fragment>
+  <Connect(CustomTextField)
+    className="center"
+    field={
+      Object {
+        "defaultValue": "2017-05-24",
+        "label": "Birthday",
+        "name": "dob",
+        "type": "date",
+      }
+    }
+    key="dob"
+    onChange={[Function]}
+  />
+  <Connect(CustomTextField)
+    className="center"
+    field={
+      Object {
+        "helperText": "Address should be atleast 5 characters long",
+        "label": "Address",
+        "minLength": 5,
+        "name": "address",
+        "type": "text",
+      }
+    }
+    key="address"
+    onChange={[Function]}
+  />
+  <Connect(CustomTextField)
+    className="center"
+    field={
+      Object {
+        "helperText": "City should be atleast 5 characters long",
+        "label": "City",
+        "minLength": 3,
+        "name": "city",
+        "type": "text",
+      }
+    }
+    key="city"
+    onChange={[Function]}
+  />
+  <Connect(CustomTextField)
+    className="center"
+    field={
+      Object {
+        "helperText": "Postal code should be atleast 5 characters long",
+        "label": "Postal",
+        "name": "postal",
+        "type": "text",
+      }
+    }
+    key="postal"
+    onChange={[Function]}
+  />
+  <Connect(CustomTextField)
+    className="center"
+    field={
+      Object {
+        "helperText": "Must be a number",
+        "label": "Annual Income",
+        "name": "income",
+        "required": true,
+        "type": "number",
+      }
+    }
+    key="income"
+    onChange={[Function]}
+  />
+</Fragment>
+`;
